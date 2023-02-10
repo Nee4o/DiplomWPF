@@ -7,6 +7,7 @@
         <Style TargetType="Button">
             <Setter Property="Width" Value="135" />
             <Setter Property="Height" Value="35" />
+            <Setter Property="Background" Value="IndianRed"/>
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center" />
@@ -17,6 +18,12 @@
             <Setter Property="Height" Value="35" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="345" />
+            <Setter Property="Height" Value="35" />
         </Style>
     </Application.Resources>
 </Application>

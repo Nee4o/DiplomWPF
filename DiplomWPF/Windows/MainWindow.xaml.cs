@@ -24,7 +24,7 @@ namespace DiplomWPF.Windows
         {
             InitializeComponent();
             Manager.mainFrame = mainFrame;
-            Manager.mainFrame.Navigate(new Request());
+            Manager.mainFrame.Navigate(new Cost());
         }
     }
 }

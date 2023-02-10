@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiplomWPF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace DiplomWPF.Pages
@@ -17,11 +19,20 @@ namespace DiplomWPF.Pages
     /// <summary>
     /// Логика взаимодействия для Report.xaml
     /// </summary>
-    public partial class Report : Window
+    public partial class Report : Page
     {
         public Report()
         {
             InitializeComponent();
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                RZDDatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                dataGridReport.ItemsSource = RZDDatabaseContext.db.Reports.ToList();
+            }
         }
     }
 }
