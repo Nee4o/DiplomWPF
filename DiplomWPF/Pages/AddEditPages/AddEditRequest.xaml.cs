@@ -27,6 +27,12 @@ namespace DiplomWPF.Pages.AddEditPages
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
+            var errors = ErrorHandler.Handler(_currentRequest);
+            if (errors.Length > 0)
+            {
+                MessageBox.Show(errors.ToString());
+                return;
+            }
             if (_currentRequest.Id == 0)
                 RZDDatabaseContext.db.Requests.Add(_currentRequest);
             try

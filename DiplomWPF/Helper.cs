@@ -2,6 +2,9 @@
 
 namespace DiplomWPF.Models
 {
+    /// <summary>
+    /// Class containing Worker data
+    /// </summary>
     public partial class Worker
     {
         public string FIO
@@ -12,7 +15,9 @@ namespace DiplomWPF.Models
             }
         }
     }
-
+    /// <summary>
+    /// Class containing Report data
+    /// </summary>
     public partial class Report
     {
         public string Price
@@ -23,7 +28,9 @@ namespace DiplomWPF.Models
             }
         }
     }
-
+    /// <summary>
+    /// Class containing Cost data
+    /// </summary>
     public partial class Cost
     {
         public string price

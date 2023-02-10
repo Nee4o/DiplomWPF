@@ -158,6 +158,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ErrorHandler.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Migrations\20230210103450_Initial-Migration.cs" />
     <Compile Include="Migrations\20230210103450_Initial-Migration.designer.cs">
