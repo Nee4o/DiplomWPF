@@ -1,17 +1,7 @@
-﻿using DiplomWPF.Pages;
-using System;
-using System.Collections.Generic;
+﻿using DiplomWPF.Models;
+using DiplomWPF.Pages;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DiplomWPF.Windows
 {
@@ -23,8 +13,17 @@ namespace DiplomWPF.Windows
         public MainWindow()
         {
             InitializeComponent();
-            Manager.mainFrame = mainFrame;
-            Manager.mainFrame.Navigate(new Cost());
+        }
+
+        private void entryButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (RZDDatabaseContext.db.SystemAdministrators.Where(sys => sys.Login == loginTextBox.Text && sys.Password == passwordPasswordBox.Password).FirstOrDefault() != null)
+            {
+                WorkWindow workWindow = new WorkWindow();
+                workWindow.Show();
+                this.Close();
+            }
+            else MessageBox.Show("Ошибка логина или пароля");
         }
     }
 }

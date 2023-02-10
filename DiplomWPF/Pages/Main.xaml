@@ -9,15 +9,8 @@
       Title="Main">
 
     <Grid>
-        <StackPanel
-            Orientation="Vertical"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            >
-            <Button x:Name="toRequest"
-                Width="200"
-                Height="50" Click="toRequest_Click"
-                    >
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="toRequest" Content="Начать" Width="200" Height="50" Click="toRequest_Click">
                 
             </Button>
         </StackPanel>

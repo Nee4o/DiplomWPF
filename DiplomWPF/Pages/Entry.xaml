@@ -15,9 +15,9 @@
             Width="175"
             >
             <TextBlock Text="Логин"></TextBlock>
-            <TextBox x:Name="loginTextBox"></TextBox>
-            
-            <TextBlock Text="Пароль"></TextBlock>
+            <TextBox x:Name="loginTextBox" Height="20" Width="auto"></TextBox>
+
+            <TextBlock Text="Пароль" Height="20"></TextBlock>
             <PasswordBox x:Name="passwordPasswordBox"></PasswordBox>
 
             <Button x:Name="entryButton" Height="25" Margin="0 10 0 0" Content="Войти" Click="entryButton_Click"></Button>
