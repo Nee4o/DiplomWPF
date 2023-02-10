@@ -21,12 +21,18 @@ namespace DiplomWPF.Pages.AddEditPages
     /// </summary>
     public partial class AddEditRequest : Page
     {
-        private Models.Request _currentRequest;
-        public AddEditRequest()
+        private Models.Request _currentRequest = new Models.Request();
+        public AddEditRequest(Models.Request request)
         {
+            if (request != null)
+            {
+                _currentRequest = request;
+            }
             InitializeComponent();
+            DataContext = _currentRequest;
             comboBoxTypes.ItemsSource = RZDDatabaseContext.db.Types.ToList();
             comboBoxWorkers.ItemsSource = RZDDatabaseContext.db.Workers.ToList();
+            comboBoxStatuses.ItemsSource = RZDDatabaseContext.db.Statuses.ToList();
         }
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
@@ -37,7 +43,7 @@ namespace DiplomWPF.Pages.AddEditPages
             {
                 RZDDatabaseContext.db.SaveChanges();
                 MessageBox.Show("Информация сохранена!");
-                NavigationPages.mainFrame.GoBack();
+                Manager.mainFrame.GoBack();
             }
             catch (Exception ex)
             {

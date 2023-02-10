@@ -20,20 +20,27 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Название" Grid.Row="0"></TextBlock>
         <TextBlock Text="Должность" Grid.Row="1"></TextBlock>
         <TextBlock Text="Описание" Grid.Row="2"></TextBlock>
         <TextBlock Text="Тип" Grid.Row="3"></TextBlock>
         <TextBlock Text="Работник" Grid.Row="4"></TextBlock>
+        <TextBlock Text="Cтатус" Grid.Row="5"></TextBlock>
+        <TextBlock Text="Время создания" Grid.Row="6"></TextBlock>
 
-        <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
-        <TextBox  Grid.Row="1" Grid.Column="1"></TextBox>
-        <TextBox  Grid.Row="2" Grid.Column="1"></TextBox>
+        <TextBox Text="{Binding Title}" Grid.Row="0" Grid.Column="1"></TextBox>
+        <TextBox Text="{Binding Post}"  Grid.Row="1" Grid.Column="1"></TextBox>
+        <TextBox Text="{Binding Description}"  Grid.Row="2" Grid.Column="1"></TextBox>
 
-        <ComboBox Name="comboBoxTypes" DisplayMemberPath="Title" Grid.Row="3" Grid.Column="1"></ComboBox>
-        <ComboBox Name="comboBoxWorkers" DisplayMemberPath="FIO" Grid.Row="4" Grid.Column="1"></ComboBox>
+        <ComboBox Text="{Binding IdType}" Name="comboBoxTypes" DisplayMemberPath="Id" Grid.Row="3" Grid.Column="1"></ComboBox>
+        <ComboBox Text="{Binding IdStatus}" Name="comboBoxWorkers" DisplayMemberPath="Id" Grid.Row="4" Grid.Column="1"></ComboBox>
+        <ComboBox Text="{Binding IdWorker}" Name="comboBoxStatuses" DisplayMemberPath="Id" Grid.Row="5" Grid.Column="1"></ComboBox>
 
-        <Button x:Name="saveButton" Click="saveButton_Click" Grid.Row="5" Grid.ColumnSpan="2" Content="Сохранить"></Button>
+        <DatePicker SelectedDate="{Binding DateOfCreation}" Grid.Row="6" Grid.Column="1"></DatePicker>
+        
+        <Button x:Name="saveButton" Click="saveButton_Click" Grid.Row="7" Grid.ColumnSpan="2" Content="Сохранить"></Button>
     </Grid>
 </Page>

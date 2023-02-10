@@ -28,8 +28,8 @@ namespace DiplomWPF.Pages
 
         private void entryButton_Click(object sender, RoutedEventArgs e)
         {
-            if (RZDDatabaseContext.db.SystemAdministrators.Where(sys => sys.Login == loginTextBox.Text && sys.Password == passwordPasswordBox.Password).FirstOrDefault () != null)
-                NavigationPages.OpenPage(NavigationPages.Pages.Main);
+            if (RZDDatabaseContext.db.SystemAdministrators.Where(sys => sys.Login == loginTextBox.Text && sys.Password == passwordPasswordBox.Password).FirstOrDefault() != null)
+                Manager.mainFrame.Navigate(new Main());
             else MessageBox.Show("Ошибка логина или пароля");
         }
     }

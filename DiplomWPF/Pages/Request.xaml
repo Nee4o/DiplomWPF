@@ -6,19 +6,15 @@
       xmlns:local="clr-namespace:DiplomWPF.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Request">
+      Title="Request" IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="196*"/>
             <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
-        <DataGrid
-            x:Name="dataGridRequest"
-            IsReadOnly="True" 
-            Grid.Row="0"
-            AutoGenerateColumns="False"
-            ItemsSource="{Binding Requests}"
+        <DataGrid x:Name="dataGridRequest" IsReadOnly="True"  Grid.Row="0" AutoGenerateColumns="False" 
+                  ItemsSource="{Binding Requests}" MouseDoubleClick="dataGridRequest_MouseDoubleClick"
             >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер заявки" Binding="{Binding Id}" Width="*"/>
@@ -31,7 +27,7 @@
                 <DataGridTextColumn Header="Дата создания заявки" Binding="{Binding DateOfCreation, StringFormat=\{0:dd.MM.yy\}}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button HorizontalAlignment="Left" Grid.Row="1" Content="Удалить" Margin="10 0 0 0"></Button>
-        <Button HorizontalAlignment="Right" Grid.Row="1" Content="Новая заявка" Margin="0 0 10 0"></Button>
+        <Button x:Name="deleteRequestButton" Click="deleteRequestButton_Click" HorizontalAlignment="Left" Grid.Row="1" Content="Удалить" Margin="10 0 0 0"></Button>
+        <Button x:Name="createRequestButton" Click="createRequestButton_Click" HorizontalAlignment="Right" Grid.Row="1" Content="Новая заявка" Margin="0 0 10 0"></Button>
     </Grid>
 </Page>

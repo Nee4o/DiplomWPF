@@ -173,7 +173,7 @@
     <Compile Include="Models\SystemAdministrator.cs" />
     <Compile Include="Models\Type.cs" />
     <Compile Include="Models\Worker.cs" />
-    <Compile Include="NavigationPages.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Pages\AddEditPages\AddEditRequest.xaml.cs">
       <DependentUpon>AddEditRequest.xaml</DependentUpon>
     </Compile>

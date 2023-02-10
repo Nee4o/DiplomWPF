@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiplomWPF.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,8 @@ namespace DiplomWPF.Windows
         public MainWindow()
         {
             InitializeComponent();
-            NavigationPages.mainFrame = mainFrame;
-            NavigationPages.OpenPage(NavigationPages.Pages.AddEditRequest);
+            Manager.mainFrame = mainFrame;
+            Manager.mainFrame.Navigate(new Request());
         }
     }
 }

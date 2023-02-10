@@ -27,7 +27,7 @@ namespace DiplomWPF.Pages
 
         private void toRequest_Click(object sender, RoutedEventArgs e)
         {
-            NavigationPages.OpenPage(NavigationPages.Pages.Request);
+            Manager.mainFrame.Navigate(new Request());
         }
     }
 }
