@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiplomWPF.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,28 @@ namespace DiplomWPF.Pages.AddEditPages
     /// </summary>
     public partial class AddEditRequest : Page
     {
+        private Models.Request _currentRequest;
         public AddEditRequest()
         {
             InitializeComponent();
+            comboBoxTypes.ItemsSource = RZDDatabaseContext.db.Types.ToList();
+            comboBoxWorkers.ItemsSource = RZDDatabaseContext.db.Workers.ToList();
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (_currentRequest.Id == 0)
+                RZDDatabaseContext.db.Requests.Add(_currentRequest);
+            try
+            {
+                RZDDatabaseContext.db.SaveChanges();
+                MessageBox.Show("Информация сохранена!");
+                NavigationPages.mainFrame.GoBack();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
     }
 }

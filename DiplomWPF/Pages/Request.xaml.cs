@@ -24,7 +24,8 @@ namespace DiplomWPF.Pages
         public Request()
         {
             InitializeComponent();
-            dataGridRequest.ItemsSource = RZDDatabaseContext.db.Request.ToList();
+            dataGridRequest.ItemsSource = RZDDatabaseContext.db.Requests.ToList();
+            DataContext = this;
         }
     }
 }

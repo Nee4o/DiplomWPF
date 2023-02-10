@@ -4,6 +4,19 @@
              xmlns:local="clr-namespace:DiplomWPF"
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="135" />
+            <Setter Property="Height" Value="35" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style> 
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
     </Application.Resources>
 </Application>

@@ -1,5 +1,6 @@
 ﻿using DiplomWPF.Models;
 using DiplomWPF.Pages;
+using DiplomWPF.Pages.AddEditPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,8 @@ namespace DiplomWPF
         {
             Main,
             Request,
-            Entry
+            Entry,
+            AddEditRequest
         }
 
         public static void OpenPage(Pages pages)
@@ -35,6 +37,9 @@ namespace DiplomWPF
                     break; 
                 case Pages.Entry:
                     mainFrame.Navigate(new Entry());
+                    break;
+                case Pages.AddEditRequest:
+                    mainFrame.Navigate(new AddEditRequest());
                     break;
                 default:
                     break;

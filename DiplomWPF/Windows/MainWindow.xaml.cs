@@ -23,7 +23,7 @@ namespace DiplomWPF.Windows
         {
             InitializeComponent();
             NavigationPages.mainFrame = mainFrame;
-            NavigationPages.OpenPage(NavigationPages.Pages.Entry);
+            NavigationPages.OpenPage(NavigationPages.Pages.AddEditRequest);
         }
     }
 }

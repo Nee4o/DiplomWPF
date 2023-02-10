@@ -28,22 +28,24 @@ namespace DiplomWPF.Models
             return _context;
         }
 
-        public virtual DbSet<Cost> Cost { get; set; }
-        public virtual DbSet<History> History { get; set; }
-        public virtual DbSet<JobName> JobName { get; set; }
-        public virtual DbSet<Report> Report { get; set; }
-        public virtual DbSet<Request> Request { get; set; }
-        public virtual DbSet<Status> Status { get; set; }
-        public virtual DbSet<SystemAdministrator> SystemAdministrator { get; set; }
-        public virtual DbSet<Type> Type { get; set; }
-        public virtual DbSet<Worker> Worker { get; set; }
+        public virtual DbSet<Cost> Costs { get; set; }
+        public virtual DbSet<History> Histories { get; set; }
+        public virtual DbSet<JobName> JobNames { get; set; }
+        public virtual DbSet<Report> Reports { get; set; }
+        public virtual DbSet<Request> Requests { get; set; }
+        public virtual DbSet<Status> Statuses { get; set; }
+        public virtual DbSet<SystemAdministrator> SystemAdministrators { get; set; }
+        public virtual DbSet<Type> Types { get; set; }
+        public virtual DbSet<Worker> Workers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=RZDDatabase;Username=postgres;Password=123");
+                optionsBuilder
+                    .UseLazyLoadingProxies()
+                    .UseNpgsql("Host=localhost;Port=5432;Database=RZDDatabase;Username=postgres;Password=123");
             }
         }
 
