@@ -6,4 +6,5 @@ Wireframe
 ERD
 ![ERD](https://user-images.githubusercontent.com/100236466/218146459-b3f75db9-249a-4043-8d3e-5a7c35823ebb.png)
 Архитектура приложения
-![image](https://user-images.githubusercontent.com/100236466/218146845-3fa26921-db0c-45bc-9690-df1887cebdd4.png)
+![image](https://user-images.githubusercontent.com/100236466/218243576-fd10b4b3-5eef-46b2-bb57-08fc7cd73176.png)
+
