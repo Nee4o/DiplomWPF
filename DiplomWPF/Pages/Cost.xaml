@@ -13,7 +13,7 @@
             <RowDefinition Height="196*"/>
             <RowDefinition Height="29*"/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="dataGridCost" AutoGenerateColumns="False" MouseDoubleClick="DataGridCost_MouseDoubleClick">
+        <DataGrid x:Name="DataGridCost" AutoGenerateColumns="False" MouseDoubleClick="DataGridCost_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер затраты" Binding="{Binding Id}" Width="*"/>
                 <DataGridTextColumn Header="Название" Binding="{Binding Title}" Width="*"/>
@@ -22,7 +22,7 @@
                 <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=\{0:dd.MM.yy\}}" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="deleteCostButton" Click="DeleteCostButton_Click" HorizontalAlignment="Left" Grid.Row="1" Content="Удалить" Margin="10 0 0 0"></Button>
-        <Button x:Name="createCostButton" Click="CreateCostButton_Click" HorizontalAlignment="Right" Grid.Row="1" Content="Новая затрата" Margin="0 0 10 0"></Button>
+        <Button x:Name="DeleteCostButton" Click="DeleteCostButton_Click" HorizontalAlignment="Left" Grid.Row="1" Content="Удалить" Margin="10 0 0 0"></Button>
+        <Button x:Name="CreateCostButton" Click="CreateCostButton_Click" HorizontalAlignment="Right" Grid.Row="1" Content="Новая затрата" Margin="0 0 10 0"></Button>
     </Grid>
 </Page>

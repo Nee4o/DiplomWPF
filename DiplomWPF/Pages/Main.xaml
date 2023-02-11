@@ -10,7 +10,7 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="toRequest" Content="Начать" Width="200" Height="50" Click="toRequest_Click">
+            <Button x:Name="ToRequest" Content="Начать" Width="200" Height="50" Click="ToRequest_Click">
                 
             </Button>
         </StackPanel>

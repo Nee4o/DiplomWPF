@@ -27,17 +27,17 @@ namespace DiplomWPF.Pages
         {
             if (Visibility != Visibility.Visible) return;
             RZDDatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            dataGridRequest.ItemsSource = RZDDatabaseContext.db.Requests.ToList();
+            DataGridRequest.ItemsSource = RZDDatabaseContext.db.Requests.ToList();
         }
 
         private void DataGridRequest_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Manager.mainFrame.Navigate(new AddEditRequest((dataGridRequest.CurrentItem as Models.Request)));
+            Manager.mainFrame.Navigate(new AddEditRequest((DataGridRequest.CurrentItem as Models.Request)));
         }
 
         private void DeleteRequestButton_Click(object sender, RoutedEventArgs e)
         {
-            var requests = dataGridRequest.SelectedItems.Cast<Models.Request>().ToList();
+            var requests = DataGridRequest.SelectedItems.Cast<Models.Request>().ToList();
             if (MessageBox.Show($"Вы точно хотите удалить следующие {requests.Count} элементов?", "Внимание",
                     MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
             try
@@ -45,7 +45,7 @@ namespace DiplomWPF.Pages
                 RZDDatabaseContext.db.Requests.RemoveRange(requests);
                 RZDDatabaseContext.db.SaveChanges();
                 MessageBox.Show("Данные успешно удалены!");
-                dataGridRequest.ItemsSource = RZDDatabaseContext.db.Requests.ToList();
+                DataGridRequest.ItemsSource = RZDDatabaseContext.db.Requests.ToList();
             }
             catch (Exception ex)
             {

@@ -17,7 +17,7 @@ namespace DiplomWPF.Pages
 
         private void EntryButton_Click(object sender, RoutedEventArgs e)
         {
-            if (RZDDatabaseContext.db.SystemAdministrators.FirstOrDefault(sys => sys.Login == loginTextBox.Text && sys.Password == passwordPasswordBox.Password) != null)
+            if (RZDDatabaseContext.db.SystemAdministrators.FirstOrDefault(sys => sys.Login == LoginTextBox.Text && sys.Password == PasswordPasswordBox.Password) != null)
                 Manager.mainFrame.Navigate(new Main());
             else MessageBox.Show("Ошибка логина или пароля");
         }

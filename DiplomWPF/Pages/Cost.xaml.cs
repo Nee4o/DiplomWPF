@@ -22,12 +22,12 @@ namespace DiplomWPF.Pages
         {
             if (Visibility != Visibility.Visible) return;
             RZDDatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            dataGridCost.ItemsSource = RZDDatabaseContext.db.Costs.ToList();
+            DataGridCost.ItemsSource = RZDDatabaseContext.db.Costs.ToList();
         }
 
         private void DeleteCostButton_Click(object sender, RoutedEventArgs e)
         {
-            var costs = dataGridCost.SelectedItems.Cast<Models.Cost>().ToList();
+            var costs = DataGridCost.SelectedItems.Cast<Models.Cost>().ToList();
             if (MessageBox.Show($"Вы действительно хотите удалить {costs.Count} элементов?", "Внимание",
                     MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
             try
@@ -35,7 +35,7 @@ namespace DiplomWPF.Pages
                 RZDDatabaseContext.db.Costs.RemoveRange(costs);
                 RZDDatabaseContext.db.SaveChanges();
                 MessageBox.Show("Данные успешно удалены!");
-                dataGridCost.ItemsSource = RZDDatabaseContext.db.Costs.ToList();
+                DataGridCost.ItemsSource = RZDDatabaseContext.db.Costs.ToList();
 
             }
             catch (Exception ex)
@@ -51,7 +51,7 @@ namespace DiplomWPF.Pages
 
         private void DataGridCost_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Manager.mainFrame.Navigate(new AddEditCost(dataGridCost.CurrentItem as Models.Cost));
+            Manager.mainFrame.Navigate(new AddEditCost(DataGridCost.CurrentItem as Models.Cost));
         }
     }
 }

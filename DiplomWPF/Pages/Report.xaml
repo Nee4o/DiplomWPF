@@ -10,7 +10,7 @@
 
     <Grid>
         
-        <DataGrid x:Name="dataGridReport" AutoGenerateColumns="False">
+        <DataGrid x:Name="DataGridReport" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер отчета" Binding="{Binding Id}" Width="*"/>
                 <DataGridTextColumn Header="Период" Binding="{Binding Period}" Width="*"/>

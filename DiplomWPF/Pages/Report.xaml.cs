@@ -19,7 +19,7 @@ namespace DiplomWPF.Pages
         {
             if (Visibility != Visibility.Visible) return;
             RZDDatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-            dataGridReport.ItemsSource = RZDDatabaseContext.db.Reports.ToList();
+            DataGridReport.ItemsSource = RZDDatabaseContext.db.Reports.ToList();
         }
     }
 }

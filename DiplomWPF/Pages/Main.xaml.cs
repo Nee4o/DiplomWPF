@@ -13,7 +13,7 @@ namespace DiplomWPF.Pages
             InitializeComponent();
         }
 
-        private void toRequest_Click(object sender, RoutedEventArgs e)
+        private void ToRequest_Click(object sender, RoutedEventArgs e)
         {
             Manager.mainFrame.Navigate(new Request());
         }

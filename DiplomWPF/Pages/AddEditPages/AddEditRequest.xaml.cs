@@ -22,9 +22,9 @@ namespace DiplomWPF.Pages.AddEditPages
 
             InitializeComponent();
             DataContext = _currentRequest;
-            comboBoxTypes.ItemsSource = RZDDatabaseContext.db.Types.ToList();
-            comboBoxWorkers.ItemsSource = RZDDatabaseContext.db.Workers.ToList();
-            comboBoxStatuses.ItemsSource = RZDDatabaseContext.db.Statuses.ToList();
+            ComboBoxTypes.ItemsSource = RZDDatabaseContext.db.Types.ToList();
+            ComboBoxWorkers.ItemsSource = RZDDatabaseContext.db.Workers.ToList();
+            ComboBoxStatuses.ItemsSource = RZDDatabaseContext.db.Statuses.ToList();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -36,14 +36,14 @@ namespace DiplomWPF.Pages.AddEditPages
                 return;
             }
 
-            if (comboBoxTypes.SelectedItem != null)
-            {
-                _currentRequest.TypeId = ((Type)comboBoxTypes.SelectedItem).Id;
-            }
-            else
-            {
-                return;
-            }
+            //if (comboBoxTypes.SelectedItem != null)
+            //{
+            //    _currentRequest.TypeId = ((Type)comboBoxTypes.SelectedItem).Id;
+            //}
+            //else
+            //{
+            //    return;
+            //}
 
             if (_currentRequest.Id == 0)
                 RZDDatabaseContext.db.Requests.Add(_currentRequest);
