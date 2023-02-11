@@ -23,9 +23,7 @@ namespace DiplomWPF.Models
         
         public static RZDDatabaseContext GetContext()
         {
-            if (_context == null) 
-                _context = new RZDDatabaseContext();
-            return _context;
+            return _context ?? (_context = new RZDDatabaseContext());
         }
 
         public virtual DbSet<Cost> Costs { get; set; }
