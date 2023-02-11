@@ -164,6 +164,10 @@
     <Compile Include="Migrations\20230210103450_Initial-Migration.designer.cs">
       <DependentUpon>20230210103450_Initial-Migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20230211060207_FixProps.cs" />
+    <Compile Include="Migrations\20230211060207_FixProps.designer.cs">
+      <DependentUpon>20230211060207_FixProps.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\RZDDatabaseContextModelSnapshot.cs" />
     <Compile Include="Models\Cost.cs" />
     <Compile Include="Models\History.cs" />

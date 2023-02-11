@@ -30,6 +30,6 @@
         <TextBox Text="{Binding Price}" Grid.Row="2" Grid.Column="1"></TextBox>
         <DatePicker SelectedDate="{Binding Date}" Grid.Row="3" Grid.Column="1"></DatePicker>
 
-        <Button x:Name="saveButton" Content="Сохранить" Click="saveButton_Click" Grid.Row="5" Grid.ColumnSpan="2"></Button>
+        <Button x:Name="saveButton" Content="Сохранить" Click="SaveButton_Click" Grid.Row="5" Grid.ColumnSpan="2"></Button>
     </Grid>
 </Page>

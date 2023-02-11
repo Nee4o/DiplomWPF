@@ -20,40 +20,36 @@ namespace DiplomWPF.Pages
 
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if (Visibility == Visibility.Visible)
-            {
-                RZDDatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
-                dataGridCost.ItemsSource = RZDDatabaseContext.db.Costs.ToList();
-            }
+            if (Visibility != Visibility.Visible) return;
+            RZDDatabaseContext.db.ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+            dataGridCost.ItemsSource = RZDDatabaseContext.db.Costs.ToList();
         }
 
-        private void deleteCostButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteCostButton_Click(object sender, RoutedEventArgs e)
         {
             var costs = dataGridCost.SelectedItems.Cast<Models.Cost>().ToList();
-            if (MessageBox.Show($"Вы действительно хотите удалить {costs.Count} элементов?","Внимание",
-                MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show($"Вы действительно хотите удалить {costs.Count} элементов?", "Внимание",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) != MessageBoxResult.Yes) return;
+            try
             {
-                try
-                {
-                    RZDDatabaseContext.db.Costs.RemoveRange(costs);
-                    RZDDatabaseContext.db.SaveChanges();
-                    MessageBox.Show("Данные успешно удалены!");
-                    dataGridCost.ItemsSource = RZDDatabaseContext.db.Costs.ToList();
+                RZDDatabaseContext.db.Costs.RemoveRange(costs);
+                RZDDatabaseContext.db.SaveChanges();
+                MessageBox.Show("Данные успешно удалены!");
+                dataGridCost.ItemsSource = RZDDatabaseContext.db.Costs.ToList();
 
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 
-        private void createCostButton_Click(object sender, RoutedEventArgs e)
+        private void CreateCostButton_Click(object sender, RoutedEventArgs e)
         {
             Manager.mainFrame.Navigate(new AddEditCost(null));
         }
 
-        private void dataGridCost_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void DataGridCost_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Manager.mainFrame.Navigate(new AddEditCost(dataGridCost.CurrentItem as Models.Cost));
         }

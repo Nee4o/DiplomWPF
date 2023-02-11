@@ -21,7 +21,7 @@ namespace DiplomWPF.Pages.AddEditPages
             DataContext = _currentCost;
         }
 
-        private void saveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             if (_currentCost.Id == 0)
                 RZDDatabaseContext.db.Costs.Add(_currentCost);

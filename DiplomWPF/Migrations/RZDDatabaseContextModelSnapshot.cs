@@ -24,25 +24,23 @@ namespace DiplomWPF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<int?>("Amount")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("date");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("money");
+                        .HasColumnType("numeric");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("cost");
+                    b.ToTable("Costs");
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.History", b =>
@@ -50,25 +48,22 @@ namespace DiplomWPF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("date");
-
-                    b.Property<int>("IdWorker")
-                        .HasColumnName("Id_Worker")
-                        .HasColumnType("integer");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
+
+                    b.Property<int>("WorkerId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdWorker");
+                    b.HasIndex("WorkerId");
 
-                    b.ToTable("history");
+                    b.ToTable("Histories");
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.JobName", b =>
@@ -76,16 +71,14 @@ namespace DiplomWPF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("jobName");
+                    b.ToTable("JobNames");
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.Report", b =>
@@ -93,18 +86,17 @@ namespace DiplomWPF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<decimal>("Costs")
-                        .HasColumnType("money");
+                        .HasColumnType("numeric");
 
                     b.Property<string>("Period")
-                        .IsRequired()
-                        .HasColumnType("character varying");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("report");
+                    b.ToTable("Reports");
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.Request", b =>
@@ -112,46 +104,38 @@ namespace DiplomWPF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("DateOfCreation")
-                        .HasColumnType("date");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
-
-                    b.Property<int>("IdStatus")
-                        .HasColumnName("Id_Status")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("IdType")
-                        .HasColumnName("Id_Type")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("IdWorker")
-                        .HasColumnName("Id_Worker")
-                        .HasColumnType("integer");
+                        .HasColumnType("text");
 
                     b.Property<string>("Post")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("WorkerId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdStatus");
+                    b.HasIndex("StatusId");
 
-                    b.HasIndex("IdType");
+                    b.HasIndex("TypeId");
 
-                    b.HasIndex("IdWorker");
+                    b.HasIndex("WorkerId");
 
-                    b.ToTable("request");
+                    b.ToTable("Requests");
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.Status", b =>
@@ -159,48 +143,44 @@ namespace DiplomWPF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Title")
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("status");
+                    b.ToTable("Statuses");
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.SystemAdministrator", b =>
                 {
-                    b.Property<int>("IdJobName")
-                        .HasColumnName("Id_JobName")
-                        .HasColumnType("integer");
-
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("JobNameId")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Login")
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.Property<string>("Password")
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.Property<string>("Surname")
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
-                    b.HasKey("IdJobName")
-                        .HasName("SystemAdministrator_pkey");
+                    b.HasKey("Id");
 
-                    b.ToTable("systemAdministrator");
+                    b.HasIndex("JobNameId")
+                        .IsUnique();
+
+                    b.ToTable("SystemAdministrators");
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.Type", b =>
@@ -208,15 +188,14 @@ namespace DiplomWPF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Title")
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("type");
+                    b.ToTable("Types");
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.Worker", b =>
@@ -224,78 +203,67 @@ namespace DiplomWPF.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
-                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityAlwaysColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Cabinet")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.Property<string>("Patronymic")
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasColumnType("character varying(100)")
-                        .HasMaxLength(100);
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("worker");
+                    b.ToTable("Workers");
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.History", b =>
                 {
-                    b.HasOne("DiplomWPF.Models.Worker", "IdWorkerNavigation")
+                    b.HasOne("DiplomWPF.Models.Worker", "WorkerNavigationId")
                         .WithMany("History")
-                        .HasForeignKey("IdWorker")
-                        .HasConstraintName("fk_history_worker")
+                        .HasForeignKey("WorkerId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.Request", b =>
                 {
-                    b.HasOne("DiplomWPF.Models.Status", "IdStatusNavigation")
+                    b.HasOne("DiplomWPF.Models.Status", "StatusNavigationId")
                         .WithMany("Request")
-                        .HasForeignKey("IdStatus")
-                        .HasConstraintName("fk_request_status")
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DiplomWPF.Models.Type", "IdTypeNavigation")
+                    b.HasOne("DiplomWPF.Models.Type", "TypeNavigationId")
                         .WithMany("Request")
-                        .HasForeignKey("IdType")
-                        .HasConstraintName("fk_request_type")
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DiplomWPF.Models.Worker", "IdWorkerNavigation")
+                    b.HasOne("DiplomWPF.Models.Worker", "WorkerNavigationId")
                         .WithMany("Request")
-                        .HasForeignKey("IdWorker")
-                        .HasConstraintName("fk_request_worker")
+                        .HasForeignKey("WorkerId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("DiplomWPF.Models.SystemAdministrator", b =>
                 {
-                    b.HasOne("DiplomWPF.Models.JobName", "IdJobNameNavigation")
+                    b.HasOne("DiplomWPF.Models.JobName", "JobNameNavigationId")
                         .WithOne("SystemAdministrator")
-                        .HasForeignKey("DiplomWPF.Models.SystemAdministrator", "IdJobName")
-                        .HasConstraintName("fk_systemAdministrator_jobName")
+                        .HasForeignKey("DiplomWPF.Models.SystemAdministrator", "JobNameId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

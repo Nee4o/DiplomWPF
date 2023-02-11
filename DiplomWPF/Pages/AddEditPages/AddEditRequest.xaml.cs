@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Type = DiplomWPF.Models.Type;
 
 namespace DiplomWPF.Pages.AddEditPages
 {
@@ -18,6 +19,7 @@ namespace DiplomWPF.Pages.AddEditPages
             {
                 _currentRequest = request;
             }
+
             InitializeComponent();
             DataContext = _currentRequest;
             comboBoxTypes.ItemsSource = RZDDatabaseContext.db.Types.ToList();
@@ -25,7 +27,7 @@ namespace DiplomWPF.Pages.AddEditPages
             comboBoxStatuses.ItemsSource = RZDDatabaseContext.db.Statuses.ToList();
         }
 
-        private void saveButton_Click(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             var errors = ErrorHandler.Handler(_currentRequest);
             if (errors.Length > 0)
@@ -33,8 +35,19 @@ namespace DiplomWPF.Pages.AddEditPages
                 MessageBox.Show(errors.ToString());
                 return;
             }
+
+            if (comboBoxTypes.SelectedItem != null)
+            {
+                _currentRequest.TypeId = ((Type)comboBoxTypes.SelectedItem).Id;
+            }
+            else
+            {
+                return;
+            }
+
             if (_currentRequest.Id == 0)
                 RZDDatabaseContext.db.Requests.Add(_currentRequest);
+
             try
             {
                 RZDDatabaseContext.db.SaveChanges();

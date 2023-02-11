@@ -1,6 +1,4 @@
-﻿
-
-namespace DiplomWPF.Models
+﻿namespace DiplomWPF.Models
 {
     /// <summary>
     /// Class containing Worker data

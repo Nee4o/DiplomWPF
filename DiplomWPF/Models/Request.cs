@@ -13,13 +13,13 @@ namespace DiplomWPF.Models
         public string Title { get; set; }
         public string Post { get; set; }
         public string Description { get; set; }
-        public int IdType { get; set; }
-        public int IdStatus { get; set; }
+        public int TypeId { get; set; }
+        public int StatusId { get; set; }
         public DateTime DateOfCreation { get; set; }
-        public int IdWorker { get; set; }
+        public int WorkerId { get; set; }
 
-        public virtual Status IdStatusNavigation { get; set; }
-        public virtual Type IdTypeNavigation { get; set; }
-        public virtual Worker IdWorkerNavigation { get; set; }
+        public virtual Status StatusNavigationId { get; set; }
+        public virtual Type TypeNavigationId { get; set; }
+        public virtual Worker WorkerNavigationId { get; set; }
     }
 }

@@ -8,6 +8,5 @@ namespace DiplomWPF
     public class Manager
     {
         public static Frame mainFrame { get; set; }
-
     }
 }
