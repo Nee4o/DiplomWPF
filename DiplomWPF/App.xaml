@@ -7,27 +7,41 @@
         <Style TargetType="Button">
             <Setter Property="Width" Value="135" />
             <Setter Property="Height" Value="35" />
-            <Setter Property="Background" Value="IndianRed"/>
+            <Setter Property="Background" Value="#DA4216"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontSize" Value="24"/>
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontSize" Value="24"/>
         </Style> 
         <Style TargetType="ComboBox">
             <Setter Property="Width" Value="300" />
             <Setter Property="Height" Value="35" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
 
         <Style TargetType="TextBox">
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Width" Value="345" />
             <Setter Property="Height" Value="35" />
+            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
         <Style TargetType="Label" x:Key="workWindowText">
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="Foreground" Value="#DA4216"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
     </Application.Resources>
 </Application>
