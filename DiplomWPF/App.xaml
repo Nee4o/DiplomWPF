@@ -5,24 +5,26 @@
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="Button">
-            <Setter Property="Width" Value="135" />
+            <Setter Property="Width" Value="auto" />
             <Setter Property="Height" Value="35" />
             <Setter Property="Background" Value="#DA4216"/>
-            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Typey Mctypeface"/>
             <Setter Property="FontSize" Value="24"/>
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Typey Mctypeface"/>
             <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Height" Value="auto"/>
         </Style> 
         <Style TargetType="ComboBox">
             <Setter Property="Width" Value="300" />
             <Setter Property="Height" Value="35" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Typey Mctypeface"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>
 
@@ -30,18 +32,20 @@
             <Setter Property="VerticalAlignment" Value="Center" />
             <Setter Property="Width" Value="345" />
             <Setter Property="Height" Value="35" />
-            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Typey Mctypeface"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>
         <Style TargetType="Label" x:Key="workWindowText">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="#DA4216"/>
-            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Typey Mctypeface"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
         <Style TargetType="DataGrid">
-            <Setter Property="FontFamily" Value="/Fonts/#Gawaa"/>
+            <Setter Property="FontFamily" Value="/Fonts/#Typey Mctypeface"/>
             <Setter Property="FontSize" Value="18"/>
-        </Style>
+        </Style> 
     </Application.Resources>
 </Application>

@@ -12,12 +12,20 @@
             <RowDefinition Height="192*"/>
         </Grid.RowDefinitions>
         <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"></Frame>
-        <Image HorizontalAlignment="Left" Margin="5 3 0 3" Source="/Resources/rzdLogo.png"></Image>
-        <Button x:Name="exitButton" Click="exitButton_Click" Content="Выход" HorizontalAlignment="Right" Margin=" 0 3 5 3"/>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Label Style="{StaticResource workWindowText}" MouseDoubleClick="Label_MouseDoubleClick" Margin="0 0 50 0" Content="Заявки"></Label>
-            <Label Style="{StaticResource workWindowText}" MouseDoubleClick="Label_MouseDoubleClick" Margin="50 0 0 0" Content="Затраты"></Label>
-            <Label Style="{StaticResource workWindowText}" MouseDoubleClick="Label_MouseDoubleClick" Margin="100 0 0 0" Content="Отчеты"></Label>
-        </StackPanel>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="160"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" HorizontalAlignment="Left" Source="/Resources/rzdLogo.png" Margin="10 0 0 0"></Image>
+            <Label Grid.Column="1" Style="{StaticResource workWindowText}" MouseDoubleClick="Label_MouseDoubleClick" Content="Заявки"></Label>
+            <Label Grid.Column="2" Style="{StaticResource workWindowText}" MouseDoubleClick="Label_MouseDoubleClick" Content="Затраты"></Label>
+            <Label Grid.Column="3" Style="{StaticResource workWindowText}" MouseDoubleClick="Label_MouseDoubleClick" Content="Отчеты"></Label>
+            <Button Grid.Column="4" x:Name="ExitButton" Click="ExitButton_Click" Content="Выход" Margin="0 0 10 0"/>
+        </Grid>
     </Grid>
 </Window>
