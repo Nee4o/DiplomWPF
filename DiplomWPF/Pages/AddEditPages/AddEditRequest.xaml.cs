@@ -36,14 +36,17 @@ namespace DiplomWPF.Pages.AddEditPages
                 return;
             }
 
-            //if (comboBoxTypes.SelectedItem != null)
-            //{
-            //    _currentRequest.TypeId = ((Type)comboBoxTypes.SelectedItem).Id;
-            //}
-            //else
-            //{
-            //    return;
-            //}
+
+            if (ComboBoxTypes.SelectedItem != null || ComboBoxStatuses.SelectedItem != null || ComboBoxWorkers.SelectionBoxItem != null)
+            {
+                _currentRequest.TypeId = ((Type)ComboBoxTypes.SelectedItem).Id;
+                _currentRequest.StatusId = ((Status)ComboBoxStatuses.SelectedItem).Id;
+                _currentRequest.WorkerId = ((Worker)ComboBoxWorkers.SelectedItem).Id;
+            }
+            else
+            {
+                return;
+            }
 
             if (_currentRequest.Id == 0)
                 RZDDatabaseContext.db.Requests.Add(_currentRequest);

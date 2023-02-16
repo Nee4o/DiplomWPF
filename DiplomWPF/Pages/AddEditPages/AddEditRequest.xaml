@@ -35,12 +35,12 @@
         <TextBox Text="{Binding Post}"  Grid.Row="1" Grid.Column="1"></TextBox>
         <TextBox Text="{Binding Description}"  Grid.Row="2" Grid.Column="1"></TextBox>
 
-        <ComboBox Text="{Binding TypeId}" Name="ComboBoxTypes" DisplayMemberPath="Id" Grid.Row="3" Grid.Column="1"></ComboBox>
-        <ComboBox Text="{Binding StatusId}" Name="ComboBoxWorkers" DisplayMemberPath="Id" Grid.Row="4" Grid.Column="1"></ComboBox>
-        <ComboBox Text="{Binding WorkerId}" Name="ComboBoxStatuses" DisplayMemberPath="Id" Grid.Row="5" Grid.Column="1"></ComboBox>
+        <ComboBox Text="{Binding TypeId}" Name="ComboBoxTypes" DisplayMemberPath="Title" Grid.Row="3" Grid.Column="1"></ComboBox>
+        <ComboBox Text="{Binding StatusId}" Name="ComboBoxWorkers" DisplayMemberPath="FIO" Grid.Row="4" Grid.Column="1"></ComboBox>
+        <ComboBox Text="{Binding WorkerId}" Name="ComboBoxStatuses" DisplayMemberPath="Title" Grid.Row="5" Grid.Column="1"></ComboBox>
 
         <DatePicker SelectedDate="{Binding DateOfCreation}" Grid.Row="6" Grid.Column="1"></DatePicker>
         
-        <Button x:Name="SaveButton" Click="SaveButton_Click" Grid.Row="7" Grid.ColumnSpan="2" Content="Сохранить"></Button>
+        <Button x:Name="SaveButton" Click="SaveButton_Click" Width="150" Grid.Row="7" Grid.ColumnSpan="2" Content="Сохранить"></Button>
     </Grid>
 </Page>
