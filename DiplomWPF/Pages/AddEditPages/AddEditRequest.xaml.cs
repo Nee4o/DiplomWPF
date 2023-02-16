@@ -15,16 +15,17 @@ namespace DiplomWPF.Pages.AddEditPages
         private Models.Request _currentRequest = new Models.Request();
         public AddEditRequest(Models.Request request)
         {
+
             if (request != null)
-            {
                 _currentRequest = request;
-            }
 
             InitializeComponent();
             DataContext = _currentRequest;
+
             ComboBoxTypes.ItemsSource = RZDDatabaseContext.db.Types.ToList();
             ComboBoxWorkers.ItemsSource = RZDDatabaseContext.db.Workers.ToList();
             ComboBoxStatuses.ItemsSource = RZDDatabaseContext.db.Statuses.ToList();
+
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
